@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <!-- 配置为开发模式:详细错误提示,发布时设为false -->
+    <constant name="struts.devMode" value="true" />
+    <!-- 请求参数的编码方式 -->
+    <constant name="struts.i18n.encoding" value="UTF-8" />
+    <!-- 指定每次请求到达,重新加载资源文件,发布时设为false -->
+    <constant name="struts.i18n.reload" value="true"/>
+    <!-- 指定每次配置文件更改后,自动重新加载 -->
+    <constant name="struts.configuration.xml.reload" value="true"/>
+    <!-- 指定XSLT Result使用样式表缓存,发布时设为false -->
+    <constant name="struts.xslt.nocache" value="true"/>
+    <!-- 采用动态方法调用 -->
+    <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+    <!-- 把扩展名配置为action,do等用逗号隔开 -->
+    <constant name="struts.action.extension" value="do" />
+    <!-- 把主题配置为simple -->
+    <constant name="struts.ui.theme" value="simple" />
+
+    <package name="default" extends="struts-default">
+        <global-allowed-methods>regex:.*</global-allowed-methods>
+
+        <action name="userManager" class="userManagerAction">
+            <result name="login">/WEB-INF/jsp/member/login.jsp</result>
+        </action>
+
+        <action name="login" class="loginAction">
+            <result name="index">/WEB-INF/jsp/member/index.jsp</result>
+        </action>
+    </package>
+</struts>

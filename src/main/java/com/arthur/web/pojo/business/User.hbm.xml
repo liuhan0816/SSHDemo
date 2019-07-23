@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.arthur.web.pojo.business.User" table="user" schema="myweb">
+        <comment>用户表</comment>
+        <id name="userId" type="java.lang.String">
+            <column name="userId" length="50"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="password" type="java.lang.String">
+            <column name="password" length="50">
+                <comment>密码</comment>
+            </column>
+        </property>
+        <property name="privilege" type="java.lang.String">
+            <column name="privilege" length="2">
+                <comment>权限</comment>
+            </column>
+        </property>
+        <property name="createdTime" type="java.util.Date">
+            <column name="createdTime">
+                <comment>创建时间</comment>
+            </column>
+        </property>
+        <property name="opdateTime" type="java.util.Date">
+            <column name="opdateTime">
+                <comment>修改时间</comment>
+            </column>
+        </property>
+        <property name="gender" type="java.lang.String">
+            <column name="gender" length="2">
+                <comment>性别</comment>
+            </column>
+        </property>
+        <property name="certificateNumber" type="java.lang.String">
+            <column name="certificateNumber" length="50">
+                <comment>身份证</comment>
+            </column>
+        </property>
+        <property name="mobile" type="java.lang.String">
+            <column name="mobile" length="50">
+                <comment>手机</comment>
+            </column>
+        </property>
+        <property name="telephoneNumber" type="java.lang.String">
+            <column name="telephoneNumber" length="50">
+                <comment>电话号码</comment>
+            </column>
+        </property>
+        <property name="mail" type="java.lang.String">
+            <column name="mail" length="50">
+                <comment>邮箱号码</comment>
+            </column>
+        </property>
+        <property name="biography" type="java.lang.String">
+            <column name="biography" length="300">
+                <comment>档案</comment>
+            </column>
+        </property>
+        <property name="name" type="java.lang.String">
+            <column name="name" length="10">
+                <comment>姓名</comment>
+            </column>
+        </property>
+        <property name="nickName" type="java.lang.String">
+            <column name="nickName" length="10">
+                <comment>昵称</comment>
+            </column>
+        </property>
+        <property name="birthday" type="java.util.Date">
+            <column name="birthday">
+                <comment>生日</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,231 @@
+body {
+ font-family: "", "", Microsoft Yahei, \5FAE\8F6F\96C5\9ED1, \5B8B\4F53, Arial, Verdana, sans-serif;
+ font-size: 12px;
+ color: #333;
+ margin: 0;
+ padding: 0;
+ 	height:100%;
+
+	min-width:1200px;
+	overflow:hidden
+}
+body, button, input, textarea {
+ font-size: 12px;
+ line-height: 1.531;
+ outline: none;
+ margin: 0;
+ padding: 0;
+ border: 0;
+}
+p, ul, ol, dl, dt, dd, form, blockquote {
+ margin: 0;
+ padding: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+
+ margin: 0;
+ padding: 0;
+ font-weight: normal;
+}
+img {
+ border: 0;
+}
+ul, ol {
+ list-style: none;
+}
+
+a {
+ text-decoration: none;
+ color: #626262;
+}
+a:hover {
+ text-decoration: none;
+}
+input, textarea, select {
+ vertical-align: middle;
+}
+*:focus {
+ outline: none;
+}
+em, i {
+ font-style: normal;
+}
+/*(C) 2017 ILD.*/
+
+@font-face {
+font-family:'iconfont';
+}
+
+.iconfont {
+	font-family:"iconfont" !important;
+	font-size:16px;
+	font-style:normal;
+	-webkit-font-smoothing:antialiased;
+	-webkit-text-stroke-width:0.2px;
+	-moz-osx-font-smoothing:grayscale;
+	display:block;
+	height:30px;
+	text-align:center
+}
+
+.ellipsis {
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	overflow:hidden
+}
+
+.fontred{
+	color:#F00;
+}
+
+
+
+
+	
+#pf-hd {
+    background: transparent;
+	height: 100px;
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+	position:relative;
+	z-index:-20;
+    /*border-bottom:3px solid #1b9525;*/
+	}
+#pf-hd .pf-logo {
+    position:absolute;
+    top: 0px;
+    left: 0px;
+	float:left;
+	padding:10px 15px 0 20px;
+	height:85px;
+	border-right:1px solid #0063a8;
+	
+}
+#pf-hd .pf-logo img {
+	margin:0px 0 0 0px;
+	height:80px;
+	width:80px;
+}
+
+
+#pf-hd .pf-name {
+    position:absolute;
+	float:left;
+	padding:0 24px 0 16px;
+	height:100%;
+	font-size:20px;
+	/*font-weight:bold;*/
+	color:#fff;
+	border-right:1px solid #007f3c;
+	line-height:66px
+}
+
+
+
+
+
+ul.navHeader{
+	position:absolute;
+    top: 0px;
+    left: 100px;
+	float:left;
+	height:100px;
+	color:#fff;
+
+	}
+	
+ul.navHeader .iconfont {
+	display:block;
+	margin-top:30px;
+	font-size:26px;
+	height:30px;
+	text-align:center
+}
+
+ul.navHeader .navtxt{
+	clear:both;
+    display:block;
+    	
+	margin-top:4px;
+
+	}
+
+ul.navHeader .imgIcon {
+	clear:both;
+	display:block;
+	margin:0 auto;
+	width:36px;
+	height:36px;
+
+	margin-top:20px;
+	
+}
+
+
+
+ul.navHeader li{
+	float:left;}
+
+ul.navHeader a{
+	display:block;
+	height:100px;
+	float:left;
+	padding:0 16px;
+
+	color:#fff;
+	border-right:1px solid #0063a8;
+	font-size:14px;
+	}
+
+ul.navHeader a:hover{
+	height:97px;
+	background-color:#0161a3;
+	border-bottom:3px solid #ff9d02;}
+
+
+ul.navHeader a.active{
+	height:97px;
+	background-color:#01548e;
+	border-bottom:3px solid #ff9d02;}
+	
+
+	
+
+.iconfont{line-height:28px;}
+
+
+.pf-user {
+    position:absolute;
+    top: 0px;
+    right: 0px;
+	float:right;
+	margin-right:20px;
+	padding:0 10px;
+	height:69px;
+	line-height:66px;
+	z-index:100;
+	margin-top:15px
+}
+
+
+.pf-user .pf-user-photo {
+	float:left;
+	margin:15px 14px 0 0;
+	width:40px;
+	height:40px;
+}
+
+.pf-user .pf-user-name {
+	float:left;
+	max-width:120px;
+	color:#eee;
+	font-size:13px;
+	margin-right:5px;
+}
+
+.pf-user a.signOut {
+   color:#ddd;}
+.pf-user a.signOut:hover {
+   color:#fff;}
+

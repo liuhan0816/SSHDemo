@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+">
+
+    <!-- 自动扫描与装配bean,包括子包 -->
+    <context:component-scan base-package="com.arthur.web.*"/>
+    <!-- 导入外部的properties文件 -->
+    <context:property-placeholder location="classpath:jdbc.properties" />
+    <!--配置数据源-->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <!--数据库驱动类-->
+        <property name="driverClass" value="${driverClass}"/>
+        <!--数据库连接URL-->
+        <property name="jdbcUrl" value="${jdbcUrl}"/>
+        <!--数据库用户名-->
+        <property name="user" value="${user}"/>
+        <!--数据库用户密码-->
+        <property name="password" value="${password}"/>
+        <!--连接池最小保留个数-->
+        <property name="minPoolSize" value="5"/>
+        <!--连接池最大保留个数-->
+        <property name="maxPoolSize" value="30"/>
+        <!--初始化时获得的连接数-->
+        <property name="initialPoolSize" value="10"/>
+        <!--最大空闲时间,为0即永不连接-->
+        <property name="maxIdleTime" value="60"/>
+        <!--当连接池连接耗尽时，一次性获取的连接数-->
+        <property name="acquireIncrement" value="5"/>
+        <!-- 控制数据源内加载的PreparedStatements数量。如果maxStatements与maxStatementsPerConnection均为0，则缓存被关闭。Default:0 -->
+        <property name="maxStatements" value="8"/>
+        <!-- maxStatementsPerConnection定义了连接池内单个连接所拥有的最大缓存statements数。Default:0 -->
+        <property name="maxStatementsPerConnection" value="5"/>
+        <!--每60检查连接池中所有的空闲连接-->
+        <property name="idleConnectionTestPeriod" value="60"/>
+        <!--和数据库连接失败后请求重新连接的次数-->
+        <property name="acquireRetryAttempts" value="30"/>
+        <!--连接失败会通知等待的数据源连接放弃连接，数据源仍保留-->
+        <property name="breakAfterAcquireFailure" value="true"/>
+    </bean>
+
+    <!--定义Hibernate的SessionFactory -->
+    <!-- SessionFactory使用的数据源为上面的数据源 -->
+    <!-- 指定了Hibernate的映射文件和配置信息 -->
+    <!--session工厂的配置-->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <!--为session工厂注入数据源-->
+        <property name="dataSource" ref="dataSource"/>
+        <!--为hibernate配置部分属性-->
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+                <prop key="show_sql">true</prop>
+                <prop key="format_sql">true</prop>
+                <prop key="hbm2ddl.auto">update</prop>
+                <prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/myweb</prop>
+                <prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>
+            </props>
+        </property>
+
+        <property name="mappingLocations">
+            <list>
+                <value>classpath:com/arthur/web/pojo/protal/*.hbm.xml</value>
+            </list>
+        </property>
+        <property name="annotatedClasses">
+            <list>
+                <value>com.arthur.web.pojo.protal.TUdpUser</value>
+            </list>
+        </property>
+
+    </bean>
+    <!-- dao实例化 -->
+    <bean id="hibernateDAO" class="com.arthur.web.core.common.dao.HibernateDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="sqlDAO" class="com.arthur.web.core.common.dao.jdbc.MySqlJdbcDAO">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!--配置事务管理-->
+    <bean id="txManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <!-- aop:配置通知 -->
+    <tx:advice id="txAdvice" transaction-manager="txManager" >
+        <tx:attributes>
+            <tx:method name="do*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false" />
+            <tx:method name="save*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false" />
+            <tx:method name="persist*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false" />
+            <tx:method name="update*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false" />
+            <tx:method name="modify*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false" />
+            <tx:method name="delete*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false" />
+            <tx:method name="remove*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false" />
+            <tx:method name="find*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="true" />
+        </tx:attributes>
+    </tx:advice>
+
+    <!-- 配置将通知织入目标对象-->
+    <aop:config proxy-target-class="true">
+        <!-- 配置切点 -->
+        <aop:pointcut expression="execution(* com.arthur.web.service..*.*(..))" id="txPc"/>
+        <!--定义通知-->
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="txPc"/>
+
+    </aop:config>
+
+</beans>

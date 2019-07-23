@@ -1,0 +1,114 @@
+@CHARSET "UTF-8";
+* {
+	padding: 0px;
+	margin: 0px;
+}
+
+a {
+	color: White
+}
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	background-size: 100% 100%;
+	background: url(../images/background.jpg) no-repeat center;/*	路径相对于当前文件路径即basePath/css	*/
+	font-size: 13px;
+	overflow: hidden;
+}
+
+img {
+	border: 0;
+}
+
+.lg {
+	width: 467px;
+	height: 467px;
+	margin: auto;
+	background: url(../images/timg_one.png) no-repeat;
+}
+
+.lg_top {
+	height: 200px;
+	width: 468px;
+}
+
+.lg_main {
+	width: 400px;
+	height: 180px;
+	margin: 0 25px;
+}
+
+.lg_m_1 {
+	width: 290px;
+	height: 100px;
+	padding: 60px 55px 20px 55px;
+}
+
+.input-position {
+	height: 37px;
+	width: 236px;
+	padding-left:10px;
+	margin: -40px 28px;
+}
+.input-style {
+	color: #666;
+	outline:none;
+	background-color:transparent;
+	border-radius: 4px;
+	font-size: 16pt;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.icon-position {
+	height: 37px;
+	width: 236px;
+	margin: 4px 28px;
+	padding-left: 10px;
+}
+.icon-ur {
+	color: #666;
+	border: none;
+	background-color:transparent;
+	background: url(../images/user.png) no-repeat;
+	font-size: 16pt;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.icon-pw {
+	color: #666;
+	border: none;
+	background-color:transparent;
+	background: url(../images/password.png) no-repeat;
+	font-size: 16pt;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.bn {
+	width: 330px;
+	height: 72px;
+	background: url(../images/enter.png) no-repeat;
+	border: 0;
+	display: block;
+	font-size: 18px;
+	color: #FFF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bolder;
+}
+
+.lg_foot {
+	height: 80px;
+	width: 330px;
+	padding: 14px 68px 0 68px;
+}
+
+.bar {
+	text-align: right;
+	background: transparent;
+	color: #FFF;
+	padding: 40px 20px 0 0;
+}
+.bt {
+	background: transparent;
+	color: #FFF;
+	border-style :none;
+}

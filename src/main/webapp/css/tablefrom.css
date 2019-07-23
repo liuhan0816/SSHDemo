@@ -1,0 +1,149 @@
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	font-size:12px;
+	/**background-image: url(resources/fc/images/bj.jpg);**/
+}
+
+
+.orginfopanel{
+	border:0px solid rgb(242, 247, 254);margin-top:10px;margin-bottom:40px;
+}
+
+.orginfopanel .title{
+	background:#fff;height:26px;line-height:26px;text-align:left;
+	margin:16px 0 10px 0;
+
+}
+
+.orginfopanel .title h3{
+	/*background:url(../theme/default/images/title.gif) left 9px no-repeat;*/ padding-left:10px;
+	border-left:3px solid #006cb7;
+	color:#006cb7;
+	/*font-weight:bold;*/
+	font-size:16px;
+}
+
+
+.formtable select{
+	padding:3px 2px;
+	width:155px;
+	border: 1px solid #dcdcde;
+	
+}
+.Validform_label {
+	font-size: 12px;
+	font-weight: bold;
+	color: #5E7595;
+}
+.formtable
+{
+	width:98%;
+	/*background-color:#B8CCE2;*/
+	background-color:#ccc;
+	align:right;
+}
+
+.main_table{margin:6px auto;  border-left:1px solid #d3d3d3; border-top:1px solid #d3d3d3}
+.main_table td{line-height:26px; padding:2px; border-bottom:1px solid #d3d3d3; border-right:1px solid #d3d3d3}
+.table_title{background:#f7f7f7; padding:6px; text-align:center; font-weight:bold}
+.formtable tr 
+{ 
+	background-color:#F2F7FE;
+	/*background-color:#fff;*/
+	align:right;
+}
+
+.formtable td
+{ 
+	padding:4px;
+}
+.formtable .inputxt{
+	border:1px solid #dcdcde;
+	width:150px;
+	padding:3px 2px;
+}
+/*sanjing*/
+.formtable input{
+	border:1px solid #dcdcde;
+	width:150px;
+	padding:3px 2px;
+	/*float:left;*/
+}
+
+
+.formtable .incheckbox{
+	border:none;
+    width:20px;
+	padding:3px 2px;
+
+}
+
+
+
+.formtable #shippingMark
+{
+	border:1px solid #dcdcde;
+	padding:3px 2px;
+
+}
+
+
+/*.formtable span.tdtitle{
+	display:block;
+	float:left;
+   width:100px;margin-right:8px;
+   text-align:right;}*/
+
+
+
+
+
+
+
+
+
+.value
+{
+	/*background-color:#FFFFFF;*/
+	padding:5px;
+	align:left; 
+	align:left; 
+	height: 12px;
+}
+
+.swfupload{
+	vertical-align:top;
+}
+.passwordStrength{
+
+}
+.passwordStrength b{
+	font-weight:normal;
+}
+.passwordStrength b,.passwordStrength span{
+	display:inline-block; 
+	vertical-align:middle;
+	line-height:16px;
+	line-height:18px\9;
+	height:16px;
+}
+.passwordStrength span{
+	width:45px; 
+	text-align:center; 
+	background-color:#d0d0d0; 
+	border-right:1px solid #fff;
+}
+.passwordStrength .last{
+	border-right:none;
+}
+.passwordStrength .bgStrength{
+	color:#fff;
+	background-color:#71b83d;
+}
+.dlgbutton{
+	text-align:center;
+	padding-top: 10px;
+	}
